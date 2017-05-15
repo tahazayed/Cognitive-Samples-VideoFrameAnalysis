@@ -1,15 +1,15 @@
-﻿// 
+﻿//
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license.
-// 
+//
 // Microsoft Cognitive Services: http://www.microsoft.com/cognitive
-// 
+//
 // Microsoft Cognitive Services Github:
 // https://github.com/Microsoft/Cognitive
-// 
+//
 // Copyright (c) Microsoft Corporation
 // All rights reserved.
-// 
+//
 // MIT License:
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -18,10 +18,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -29,21 +29,17 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// 
+//
 
+using Microsoft.ProjectOxford.Face.Contract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.ProjectOxford.Emotion.Contract;
-using Microsoft.ProjectOxford.Face.Contract;
 
 namespace LiveCameraSample
 {
     internal class Aggregation
     {
-        public static Tuple<string, float> GetDominantEmotion(Scores scores)
+        public static Tuple<string, float> GetDominantEmotion(Microsoft.ProjectOxford.Common.Contract.EmotionScores scores)
         {
             float maxScore = 0;
             string dominant = "";
@@ -58,7 +54,7 @@ namespace LiveCameraSample
             return new Tuple<string, float>(dominant, maxScore);
         }
 
-        public static string SummarizeEmotion(Scores scores)
+        public static string SummarizeEmotion(Microsoft.ProjectOxford.Common.Contract.EmotionScores scores)
         {
             var bestEmotion = Aggregation.GetDominantEmotion(scores);
             return string.Format("{0}: {1:N1}", bestEmotion.Item1, bestEmotion.Item2);
@@ -71,7 +67,7 @@ namespace LiveCameraSample
             if (attr.Age > 0) attrs.Add(attr.Age.ToString());
             if (attr.HeadPose != null)
             {
-                // Simple rule to estimate whether person is facing camera. 
+                // Simple rule to estimate whether person is facing camera.
                 bool facing = Math.Abs(attr.HeadPose.Yaw) < 25;
                 attrs.Add(facing ? "facing camera" : "not facing camera");
             }
