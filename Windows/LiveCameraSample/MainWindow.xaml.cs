@@ -397,9 +397,9 @@ namespace LiveCameraSample
             Properties.Settings.Default.VisionAPIKey = Properties.Settings.Default.VisionAPIKey.Trim();
 
             // Create API clients. 
-            _faceClient = new FaceServiceClient(Properties.Settings.Default.FaceAPIKey);
+            _faceClient = new FaceServiceClient(Properties.Settings.Default.FaceAPIKey, "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
             _emotionClient = new EmotionServiceClient(Properties.Settings.Default.EmotionAPIKey);
-            _visionClient = new VisionServiceClient(Properties.Settings.Default.VisionAPIKey);
+            _visionClient = new VisionServiceClient(Properties.Settings.Default.VisionAPIKey, "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0");
 
             // How often to analyze. 
             _grabber.TriggerAnalysisOnInterval(Properties.Settings.Default.AnalysisInterval);

@@ -25,42 +25,6 @@ namespace LiveCameraSample.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string FaceAPIKey {
-            get {
-                return ((string)(this["FaceAPIKey"]));
-            }
-            set {
-                this["FaceAPIKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string EmotionAPIKey {
-            get {
-                return ((string)(this["EmotionAPIKey"]));
-            }
-            set {
-                this["EmotionAPIKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string VisionAPIKey {
-            get {
-                return ((string)(this["VisionAPIKey"]));
-            }
-            set {
-                this["VisionAPIKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
         public global::System.Windows.Visibility SettingsPanelVisibility {
             get {
@@ -137,6 +101,42 @@ namespace LiveCameraSample.Properties {
         public global::System.TimeSpan AutoStopTime {
             get {
                 return ((global::System.TimeSpan)(this["AutoStopTime"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("05c4ee88dab5457fb0e5427163896cbf")]
+        public string FaceAPIKey {
+            get {
+                return ((string)(this["FaceAPIKey"]));
+            }
+            set {
+                this["FaceAPIKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("bf350810c7c748d0a81bafe946526158")]
+        public string EmotionAPIKey {
+            get {
+                return ((string)(this["EmotionAPIKey"]));
+            }
+            set {
+                this["EmotionAPIKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5a4fa83c08a54e9981d5f03b5a99ad34")]
+        public string VisionAPIKey {
+            get {
+                return ((string)(this["VisionAPIKey"]));
+            }
+            set {
+                this["VisionAPIKey"] = value;
             }
         }
     }
