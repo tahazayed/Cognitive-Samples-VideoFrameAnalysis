@@ -67,9 +67,12 @@ namespace LiveCameraSample
         private FaceServiceClient _faceClient = null;
         private VisionServiceClient _visionClient = null;
         private readonly FrameGrabber<LiveCameraResult> _grabber = null;
-        private static readonly ImageEncodingParam[] s_jpegParams = {
+
+        private static readonly ImageEncodingParam[] s_jpegParams =
+        {
             new ImageEncodingParam(ImwriteFlags.JpegQuality, 60)
         };
+
         private readonly CascadeClassifier _localFaceDetector = new CascadeClassifier();
         private bool _fuseClientRemoteResults;
         private LiveCameraResult _latestResultsToDisplay = null;
@@ -105,17 +108,25 @@ namespace LiveCameraSample
 
                 // The callback may occur on a different thread, so we must use the
                 // MainWindow.Dispatcher when manipulating the UI. 
-                this.Dispatcher.BeginInvoke((Action)(() =>
+                this.Dispatcher.BeginInvoke((Action) (() =>
                 {
-                    // Display the image in the left pane.
-                    LeftImage.Source = e.Frame.Image.ToBitmapSource();
-
-                    // If we're fusing client-side face detection with remote analysis, show the
-                    // new frame now with the most recent analysis available. 
-                    if (_fuseClientRemoteResults)
+                    try
                     {
-                        RightImage.Source = VisualizeResult(e.Frame);
+                        // Display the image in the left pane.
+                        LeftImage.Source = e.Frame.Image.ToBitmapSource();
+
+                        // If we're fusing client-side face detection with remote analysis, show the
+                        // new frame now with the most recent analysis available. 
+                        if (_fuseClientRemoteResults)
+                        {
+                            RightImage.Source = VisualizeResult(e.Frame);
+                        }
                     }
+                    catch (Exception)
+                    {
+                      
+                    }
+                    
                 }));
 
                 // See if auto-stop should be triggered. 
